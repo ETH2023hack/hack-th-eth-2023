@@ -15,8 +15,8 @@ const AccordionContainer: FC = () => {
     abi: contractABI,
     functionName: "participantLevels",
     args: [address ? address : "0x"],
+    watch:true
   });
-  console.log(Number(level));
   const toggleAccordion = (index: number) => {
     setOpenAccordionIndex((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -59,6 +59,7 @@ const AccordionContainer: FC = () => {
           onToggle={() => toggleAccordion(index)}
           sectionIndex={index}
           content={data.content}
+          participantLevel={Number(level)}
         />
       ))}
     </div>

@@ -1,11 +1,15 @@
-import  { FC } from "react";
+import  { FC, useEffect, useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { useContractWrite, useWaitForTransaction } from "wagmi";
+import { contractABI, contractAddress } from "../utils/contractInfo";
+import { toast } from "react-toastify";
 
 interface AccordionProps {
   isOpen: boolean;
   onToggle: () => void;
   sectionIndex: number;
   content: string;
+  participantLevel : number;
 }
 
 const Accordion: FC<AccordionProps> = ({
@@ -13,11 +17,53 @@ const Accordion: FC<AccordionProps> = ({
   onToggle,
   sectionIndex,
   content,
+  participantLevel
 }) => {
+  const [solution, setSolution] = useState("");
+
+  const { write, data ,error} = useContractWrite({
+    address: contractAddress,
+    abi: contractABI,
+    functionName: "submitSolution",
+    args: [BigInt(sectionIndex),solution],
+  });
+
+  function trimMessage(message:string) {
+    const contractCallIndex = message.indexOf('Contract Call');
+    
+    if (contractCallIndex !== -1) {
+        return message.substring(0, contractCallIndex).trim();
+    } else {
+        return message.trim();
+    }
+  } 
+
+  const { isLoading,isSuccess } = useWaitForTransaction({
+    hash: data?.hash,
+  });
+
+  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
+    setSolution(e.target.value);
+  }
+
+  
   const submitForm = () => {
-    // Add your form submission logic here
-    alert(`Form submitted in Puzzle Section ${sectionIndex + 1}`);
+    if(participantLevel >sectionIndex){
+      toast.error('Already cleared this level!');
+      return;
+    }
+    write?.();
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(trimMessage(error.message));
+    }
+  }, [error]);
+
+  useEffect(() => {
+    toast.success("You cleared this level");
+  }, [isSuccess]);
 
   return (
     <div className="w-[800px] mx-auto my-8 ">
@@ -40,6 +86,7 @@ const Accordion: FC<AccordionProps> = ({
                 type="text"
                 className="w-full p-2 border border-gray-300 mb-4 rounded-sm"
                 placeholder="Type Answer"
+                onChange={handleInputChange}
               />
 
               {/* Submit button */}
@@ -47,8 +94,9 @@ const Accordion: FC<AccordionProps> = ({
                 type="button"
                 className="bg-secondary text-white p-2 rounded"
                 onClick={submitForm}
+                disabled={isLoading}
               >
-                Submit
+                {isLoading ? 'Loading...' : 'Submit'}
               </button>
             </form>
           </div>
@@ -57,12 +105,5 @@ const Accordion: FC<AccordionProps> = ({
     </div>
   );
 };
-
-// Accordion.propTypes = {
-//     isOpen: PropTypes.bool.isRequired,
-//     onToggle: PropTypes.func.isRequired,
-//     sectionIndex: PropTypes.number.isRequired,
-//     content: PropTypes.string.isRequired,
-// };
 
 export default Accordion;

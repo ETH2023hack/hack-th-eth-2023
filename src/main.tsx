@@ -5,6 +5,7 @@ import "./index.css";
 
 // Routing imports
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
 
 // Wallet imports
 import "@rainbow-me/rainbowkit/styles.css";
@@ -14,9 +15,10 @@ import {
   RainbowKitProvider,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { sepolia, scrollSepolia, arbitrumSepolia } from "wagmi/chains";
+import { scrollSepolia, arbitrumSepolia } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import Layout from "./components/Layout";
+import { ToastContainer } from "react-toastify";
 
 // Walet Config
 const { chains, publicClient } = configureChains(
@@ -54,11 +56,21 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <WagmiConfig config={wagmiConfig}>
+    <ToastContainer
+      position="top-right"
+      autoClose={4000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />
     <RainbowKitProvider
       chains={chains}
       modalSize="compact"
       theme={midnightTheme({
-        //TODO: CHANGE COLOR BELOW(OPTIONAL)
         accentColor: "#E01A4F",
         accentColorForeground: "#0C090D",
         borderRadius: "small",
@@ -70,5 +82,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <RouterProvider router={router} />
       </React.StrictMode>
     </RainbowKitProvider>
+    <ToastContainer />
   </WagmiConfig>,
 );
