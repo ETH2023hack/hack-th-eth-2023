@@ -9,7 +9,7 @@ export default {
       },
       fontFamily: {
         Lato: ["Lato", "sans-serif"],
-        Handjet:["Handjet","serif"]
+        Handjet: ["Handjet", "serif"],
       },
     },
   },

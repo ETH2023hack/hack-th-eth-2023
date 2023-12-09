@@ -1,4 +1,4 @@
-import  { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { useContractWrite, useWaitForTransaction } from "wagmi";
 import { contractABI, contractAddress } from "../utils/contractInfo";
@@ -10,7 +10,7 @@ interface AccordionProps {
   onToggle: () => void;
   sectionIndex: number;
   content: string;
-  participantLevel : number;
+  participantLevel: number;
 }
 
 const Accordion: FC<AccordionProps> = ({
@@ -18,40 +18,39 @@ const Accordion: FC<AccordionProps> = ({
   onToggle,
   sectionIndex,
   content,
-  participantLevel
+  participantLevel,
 }) => {
   const [solution, setSolution] = useState("");
-  const {chain} = useNetwork();
+  const { chain } = useNetwork();
 
-  const { write, data ,error} = useContractWrite({
-    address: chain?.id ===421614 ? contractAddress[0] :contractAddress[1],
+  const { write, data, error } = useContractWrite({
+    address: chain?.id === 421614 ? contractAddress[0] : contractAddress[1],
     abi: contractABI,
     functionName: "submitSolution",
-    args: [BigInt(sectionIndex),solution],
+    args: [BigInt(sectionIndex), solution],
   });
 
-  function trimMessage(message:string) {
-    const contractCallIndex = message.indexOf('Contract Call');
-    
-    if (contractCallIndex !== -1) {
-        return message.substring(0, contractCallIndex).trim();
-    } else {
-        return message.trim();
-    }
-  } 
+  function trimMessage(message: string) {
+    const contractCallIndex = message.indexOf("Contract Call");
 
-  const { isLoading,isSuccess } = useWaitForTransaction({
+    if (contractCallIndex !== -1) {
+      return message.substring(0, contractCallIndex).trim();
+    } else {
+      return message.trim();
+    }
+  }
+
+  const { isLoading, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
   });
 
-  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSolution(e.target.value);
-  }
+  };
 
-  
   const submitForm = () => {
-    if(participantLevel >sectionIndex){
-      toast.error('Already cleared this level!');
+    if (participantLevel > sectionIndex) {
+      toast.error("Already cleared this level!");
       return;
     }
     write?.();
@@ -64,7 +63,7 @@ const Accordion: FC<AccordionProps> = ({
   }, [error]);
 
   useEffect(() => {
-    if(isSuccess){
+    if (isSuccess) {
       toast.success("You cleared this level");
     }
   }, [isSuccess]);
@@ -100,7 +99,7 @@ const Accordion: FC<AccordionProps> = ({
                 onClick={submitForm}
                 disabled={isLoading}
               >
-                {isLoading ? 'Loading...' : 'Submit'}
+                {isLoading ? "Loading..." : "Submit"}
               </button>
             </form>
           </div>

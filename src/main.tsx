@@ -5,7 +5,7 @@ import "./index.css";
 
 // Routing imports
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 // Wallet imports
 import "@rainbow-me/rainbowkit/styles.css";
@@ -22,7 +22,7 @@ import { ToastContainer } from "react-toastify";
 
 // Walet Config
 const { chains, publicClient } = configureChains(
-  [scrollSepolia,arbitrumSepolia],
+  [scrollSepolia, arbitrumSepolia],
   [publicProvider()],
 );
 
@@ -64,7 +64,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      />
+    />
     <RainbowKitProvider
       chains={chains}
       modalSize="compact"

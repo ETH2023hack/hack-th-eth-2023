@@ -10,13 +10,13 @@ const AccordionContainer: FC = () => {
   );
 
   const { address } = useAccount();
-  const {chain} = useNetwork();
+  const { chain } = useNetwork();
   const { data: level } = useContractRead({
-    address: chain?.id ===421614 ? contractAddress[0] :contractAddress[1],
+    address: chain?.id === 421614 ? contractAddress[0] : contractAddress[1],
     abi: contractABI,
     functionName: "participantLevels",
     args: [address ? address : "0x"],
-    watch:true
+    watch: true,
   });
   const toggleAccordion = (index: number) => {
     setOpenAccordionIndex((prevIndex) => (prevIndex === index ? null : index));
@@ -48,7 +48,7 @@ const AccordionContainer: FC = () => {
 
   return (
     <div>
-      {typeof level !== 'undefined' && (
+      {typeof level !== "undefined" && (
         <p className="text-white text-xl font-semibold mt-10 text-center">
           Your are currently at level: {Number(level) + 1}
         </p>
