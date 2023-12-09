@@ -1,3 +1,5 @@
+
+import AccordionContainer from "./components/AccordionConatiner";
 import ContractRead from "./components/ContractRead";
 import ContractWrite from "./components/ContractWrite";
 
@@ -18,6 +20,7 @@ function App() {
           />
         </a>
       </div>
+      <AccordionContainer />
       <ContractRead />
       <ContractWrite />
     </div>
