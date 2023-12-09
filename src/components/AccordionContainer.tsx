@@ -1,11 +1,23 @@
 import React, { FC, useState } from "react";
 import Accordion from "./Accordion";
 
+import { useAccount, useContractRead } from "wagmi";
+import { contractABI, contractAddress } from "../utils/contractInfo";
+import { formatUnits } from "ethers";
+
 const AccordionContainer: FC = () => {
   const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(
     null,
   );
 
+  const { address } = useAccount();
+  const { data: level } = useContractRead({
+    address: contractAddress,
+    abi: contractABI,
+    functionName: "participantLevels",
+    args: [address ? address : "0x"],
+  });
+  console.log(level);
   const toggleAccordion = (index: number) => {
     setOpenAccordionIndex((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -36,6 +48,11 @@ const AccordionContainer: FC = () => {
 
   return (
     <div>
+      {level && (
+        <p className="text-white text-xl text-center">
+          Your level is: {formatUnits(level, 0)}
+        </p>
+      )}
       {accordionData.map((data, index) => (
         <Accordion
           key={index}
