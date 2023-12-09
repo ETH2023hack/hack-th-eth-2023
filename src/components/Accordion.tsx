@@ -10,7 +10,7 @@ interface AccordionProps {
   onToggle: () => void;
   sectionIndex: number;
   content: string;
-  link:string;
+  link: string;
   participantLevel: number;
 }
 
@@ -83,7 +83,11 @@ const Accordion: FC<AccordionProps> = ({
         {isOpen && (
           <div className="mt-4">
             <p className="text-gray-100 w-5/6">{content}</p>
-            {link.length > 0 && <a className="text-secondary" target="_blank"  href={link}>Link</a>}
+            {link.length > 0 && (
+              <a className="text-secondary" target="_blank" href={link}>
+                Link
+              </a>
+            )}
             <form className="mt-4">
               <label className="block text-sm font-semibold text-gray-100 mb-1">
                 Answer:
