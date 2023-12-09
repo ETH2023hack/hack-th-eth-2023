@@ -17,7 +17,7 @@ const Accordion: FC<AccordionProps> = ({
 }) => {
   const submitForm = () => {
     // Add your form submission logic here
-    alert(`Form submitted in Accordion Section ${sectionIndex + 1}`);
+    alert(`Form submitted in Puzzle Section ${sectionIndex + 1}`);
   };
 
   return (
@@ -27,7 +27,7 @@ const Accordion: FC<AccordionProps> = ({
           className="flex items-center justify-between cursor-pointer text-blue-500 font-semibold"
           onClick={onToggle}
         >
-          <div>Accordion Section {sectionIndex + 1}</div>
+          <div>Puzzle Section {sectionIndex + 1}</div>
           {isOpen ? <FiChevronUp size={20} /> : <FiChevronDown size={20} />}
         </div>
         {isOpen && (
