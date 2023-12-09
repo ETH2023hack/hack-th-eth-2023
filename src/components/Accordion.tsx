@@ -21,8 +21,8 @@ const Accordion: FC<AccordionProps> = ({
   };
 
   return (
-    <div className="max-w-md mx-auto my-8">
-      <div className="border border-gray-300 p-4 mb-4">
+    <div className="max-w-md mx-auto my-8 ">
+      <div className="border border-gray-300 rounded-xl p-4 mb-4 ">
         <div
           className="flex items-center justify-between cursor-pointer text-blue-500 font-semibold"
           onClick={onToggle}
@@ -35,22 +35,22 @@ const Accordion: FC<AccordionProps> = ({
             <p className="text-gray-600">{content}</p>
             <form className="mt-4">
               {/* Form fields */}
-              <label className="block text-sm font-semibold text-gray-600 mb-1">
+              {/* <label className="block text-sm font-semibold text-gray-600 mb-1">
                 Text:
-              </label>
-              <input
+              </label> */}
+              {/* <input
                 type="text"
                 className="w-full p-2 border border-gray-300 mb-2"
                 placeholder="Enter text"
-              />
+              /> */}
 
               <label className="block text-sm font-semibold text-gray-600 mb-1">
-                Input:
+                Answer:
               </label>
               <input
                 type="text"
                 className="w-full p-2 border border-gray-300 mb-4"
-                placeholder="Enter input"
+                placeholder="Type Answer"
               />
 
               {/* Submit button */}
