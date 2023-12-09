@@ -14,23 +14,22 @@ const AccordionContainer: FC = () => {
   const accordionData = [
     {
       content:
-        "Content for Accordion Section 1. This can include any text or HTML.",
+        "Can you hear the image this hash for image hash(QmbxrL8e9vpGeb9frrCEQgcRSDvrYchDq8fyyb4n6BwU4J) find the image on decentralized storage?",
     },
     {
       content:
-        "Content for Accordion Section 2. Customize this content as needed.",
+        "At the dawn of a decentralized era, a digital whisper echoed, 'That's when it all started.' Seek the origin point, the cryptic fingerprint.",
     },
     {
-      content:
-        "Content for Accordion Section 3. You can add more sections to the array.",
+      content: "Name of the character dancing in this song  (small case)",
     },
+
     {
       content:
-        "Content for Accordion Section 4. Each object represents an accordion.",
+        "Strange Amazon product: not a Jedi's weapon, just fancy utensils. Lights up for meals. What's this odd discovery?(all smalle no space)",
     },
     {
-      content:
-        "Content for Accordion Section 5. Customize the content for each section.",
+      content: "",
     },
   ];
 
