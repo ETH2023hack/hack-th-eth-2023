@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import Accordion from "./Accordion";
 
-import { useAccount, useContractRead } from "wagmi";
+import { useAccount, useContractRead, useNetwork } from "wagmi";
 import { contractABI, contractAddress } from "../utils/contractInfo";
 
 const AccordionContainer: FC = () => {
@@ -10,8 +10,9 @@ const AccordionContainer: FC = () => {
   );
 
   const { address } = useAccount();
+  const {chain} = useNetwork();
   const { data: level } = useContractRead({
-    address: contractAddress,
+    address: chain?.id ===421614 ? contractAddress[0] :contractAddress[1],
     abi: contractABI,
     functionName: "participantLevels",
     args: [address ? address : "0x"],

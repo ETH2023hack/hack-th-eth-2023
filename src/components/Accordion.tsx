@@ -3,6 +3,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { useContractWrite, useWaitForTransaction } from "wagmi";
 import { contractABI, contractAddress } from "../utils/contractInfo";
 import { toast } from "react-toastify";
+import { useNetwork } from "wagmi";
 
 interface AccordionProps {
   isOpen: boolean;
@@ -20,9 +21,10 @@ const Accordion: FC<AccordionProps> = ({
   participantLevel
 }) => {
   const [solution, setSolution] = useState("");
+  const {chain} = useNetwork();
 
   const { write, data ,error} = useContractWrite({
-    address: contractAddress,
+    address: chain?.id ===421614 ? contractAddress[0] :contractAddress[1],
     abi: contractABI,
     functionName: "submitSolution",
     args: [BigInt(sectionIndex),solution],
@@ -62,7 +64,9 @@ const Accordion: FC<AccordionProps> = ({
   }, [error]);
 
   useEffect(() => {
-    toast.success("You cleared this level");
+    if(isSuccess){
+      toast.success("You cleared this level");
+    }
   }, [isSuccess]);
 
   return (

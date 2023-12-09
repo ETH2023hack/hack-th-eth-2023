@@ -22,15 +22,13 @@ import { ToastContainer } from "react-toastify";
 
 // Walet Config
 const { chains, publicClient } = configureChains(
-  // TODO CHANGE TO REQUIRED NETWORK(OPTIONAL)
-  [scrollSepolia],
+  [scrollSepolia,arbitrumSepolia],
   [publicProvider()],
 );
 
 const { connectors } = getDefaultWallets({
-  // TODO : ADD YOUR PROJECT ID AND APP NAME FROM CONNECT-WALLET
-  appName: "YOUR_PROJECT_NAME",
-  projectId: "YOUR_PROJECT_ID",
+  appName: "bankwallet",
+  projectId: "0e6f568e1144d3f8a278585f3e311bd1",
   chains,
 });
 
