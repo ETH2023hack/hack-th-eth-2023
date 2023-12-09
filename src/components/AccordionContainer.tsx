@@ -48,7 +48,7 @@ const AccordionContainer: FC = () => {
 
   return (
     <div>
-      {level && (
+      {formatUnits(level, 0) && (
         <p className="text-white text-xl text-center">
           Your level is: {formatUnits(level, 0)}
         </p>
