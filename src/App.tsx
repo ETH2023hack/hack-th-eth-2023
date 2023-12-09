@@ -11,8 +11,19 @@ function App() {
         <img
           src="/images/riddler.gif"
           alt="The riddler"
-          className="rounded-xl w-75"
+          className="rounded-xl w-80"
         />
+        <h4 className="font-Handjet text-3xl mt-20 mb-5">
+          Treasure hunt with clues all over the internet !
+        </h4>
+        <p className="text-center text-xl">
+        We leverage the blockchain to facilitate to seamless progression through each level .
+        <br />
+        Crack the code using the latest internet slang and ride the trend wave.
+        <br />
+        <br />
+        Your quest begins now! May the bits and bytes be ever in your favor. 🔍🔐
+        </p>
       </div>
       <Rules />
       <AccordionContainer />

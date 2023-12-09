@@ -1,3 +1,4 @@
+// 0 - arbitrum sepolia, 1 - scroll sepolia
 export const contractAddress: `0x${string}`[] = [
   "0x949EeF6D73417ce4792ed611eC1c13165EC40C5E",
   "0x77F04C8944241F411E9D6e9EC6245364a0752e19",
