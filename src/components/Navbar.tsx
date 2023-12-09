@@ -5,10 +5,9 @@ export default function Navbar() {
     <nav className="w-full flex justify-between items-center p-4 bg-primary sticky">
       <a href="/">
         <h1
-          className="text-secondary text-3xl font-bold mb-10"
-          style={{ color: "orange" }}
+          className="text-secondary text-xl font-bold mb-4"
         >
-          The riddler
+          Nygma
         </h1>
       </a>
       <ConnectButton showBalance={false} />

@@ -1,9 +1,8 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import Accordion from "./Accordion";
 
 import { useAccount, useContractRead } from "wagmi";
 import { contractABI, contractAddress } from "../utils/contractInfo";
-import { formatUnits } from "ethers";
 
 const AccordionContainer: FC = () => {
   const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(
@@ -17,7 +16,7 @@ const AccordionContainer: FC = () => {
     functionName: "participantLevels",
     args: [address ? address : "0x"],
   });
-  console.log(level);
+  console.log(Number(level));
   const toggleAccordion = (index: number) => {
     setOpenAccordionIndex((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -26,7 +25,7 @@ const AccordionContainer: FC = () => {
   const accordionData = [
     {
       content:
-        "Can you hear the image this hash for image hash(QmbxrL8e9vpGeb9frrCEQgcRSDvrYchDq8fyyb4n6BwU4J) find the image on decentralized storage?",
+        "Can you hear this image ? Image hash(QmbxrL8e9vpGeb9frrCEQgcRSDvrYchDq8fyyb4n6BwU4J) on IPFS",
     },
     {
       content:
@@ -48,9 +47,9 @@ const AccordionContainer: FC = () => {
 
   return (
     <div>
-      {formatUnits(level, 0) && (
-        <p className="text-white text-xl text-center">
-          Your level is: {formatUnits(level, 0)}
+      {typeof level !== 'undefined' && (
+        <p className="text-white text-xl font-semibold mt-10 text-center">
+          Your are currently at level: {Number(level) + 1}
         </p>
       )}
       {accordionData.map((data, index) => (

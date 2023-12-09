@@ -5,10 +5,11 @@ export default {
     extend: {
       colors: {
         primary: "#0C090D",
-        secondary: "#E01A4F",
+        secondary: "#14BB00",
       },
       fontFamily: {
-        NotoSans: ["Noto Sans", "sans-serif"],
+        Lato: ["Lato", "sans-serif"],
+        Handjet:["Handjet","serif"]
       },
     },
   },

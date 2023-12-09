@@ -1,26 +1,19 @@
 import AccordionContainer from "./components/AccordionContainer";
-// import ContractRead from "./components/ContractRead";
-// import ContractWrite from "./components/ContractWrite";
+import Rules from "./components/Rules";
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-evenly font-NotoSans min-h-screen py-16">
-      {/* <h1 className="text-secondary text-9xl font-bold mb-10">Reactify</h1> */}
+    <div className="flex flex-col items-center justify-evenly font-Lato min-h-screen">
+      <h1 className="text-secondary text-7xl font-bold font-Handjet mb-10">Nygma</h1>
       <div className="flex flex-col items-center text-white">
-        <a
-          href="https://github.com/SrinivasJoshi/Reactify"
-          className="text-white text-center"
-        >
           <img
-            src="/images/Riddler.gif"
-            alt="github link"
+            src="/images/riddler.gif"
+            alt="The riddler"
             className="rounded-xl w-75"
           />
-        </a>
       </div>
+      <Rules />
       <AccordionContainer />
-      {/* <ContractRead />
-      <ContractWrite /> */}
     </div>
   );
 }
