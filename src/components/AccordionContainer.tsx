@@ -29,7 +29,8 @@ const AccordionContainer: FC = () => {
         "Strange Amazon product: not a Jedi's weapon, just fancy utensils. Lights up for meals. What's this odd discovery?(all smalle no space)",
     },
     {
-      content: "",
+      content:
+        "In pixels' regular party, a secret hides shy. No alarms, no cries, just a quiet ally. It's steganography's game, where data learns to fly.",
     },
   ];
 

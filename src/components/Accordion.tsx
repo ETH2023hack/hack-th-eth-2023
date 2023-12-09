@@ -21,7 +21,7 @@ const Accordion: FC<AccordionProps> = ({
   };
 
   return (
-    <div className="max-w-md mx-auto my-8 ">
+    <div className="w-[800px] mx-auto my-8 ">
       <div className="border border-gray-300 rounded-xl p-4 mb-4 ">
         <div
           className="flex items-center justify-between cursor-pointer text-blue-500 font-semibold"

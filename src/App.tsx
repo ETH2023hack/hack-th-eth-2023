@@ -1,6 +1,6 @@
 import AccordionContainer from "./components/AccordionContainer";
-import ContractRead from "./components/ContractRead";
-import ContractWrite from "./components/ContractWrite";
+// import ContractRead from "./components/ContractRead";
+// import ContractWrite from "./components/ContractWrite";
 
 function App() {
   return (
