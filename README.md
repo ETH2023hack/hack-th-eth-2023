@@ -1,4 +1,4 @@
-# Reactify
+# Nygma
 
 Reactify: Simplifying dApp Creation with the Strength of React and the Agility of react-router-dom.
 

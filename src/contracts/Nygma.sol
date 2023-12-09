@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.22;
 
 contract Nygma {
     address private organizer;
     mapping(address => uint256) public participantLevels;
     mapping(uint256 => bytes32) private levelAnswers;
+
 
     modifier onlyOrganizer() {
         require(msg.sender == organizer, "Only the organizer can call this function");
@@ -19,8 +20,11 @@ contract Nygma {
 
     event PuzzleSolved(uint256 level, address solver);
 
-    constructor(bytes32[5] memory _initialAnswers) {
+    constructor() {
         organizer = msg.sender;
+    }
+
+    function addInitialAnswers(bytes32[] memory _initialAnswers) external onlyOrganizer {
         for (uint256 i = 0; i < 5; i++) {
             levelAnswers[i] = _initialAnswers[i];
         }
