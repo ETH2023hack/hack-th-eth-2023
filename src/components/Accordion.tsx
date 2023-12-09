@@ -69,8 +69,8 @@ const Accordion: FC<AccordionProps> = ({
   }, [isSuccess]);
 
   return (
-    <div className="w-[800px] mx-auto my-8 ">
-      <div className="border border-gray-300 rounded-xl p-4 mb-4 ">
+    <div className="w-[400px] mx-auto my-8">
+      <div className="border border-gray-300 rounded-xl p-4 mb-4">
         <div
           className="flex items-center justify-between cursor-pointer text-secondary font-semibold"
           onClick={onToggle}
@@ -80,7 +80,7 @@ const Accordion: FC<AccordionProps> = ({
         </div>
         {isOpen && (
           <div className="mt-4">
-            <p className="text-gray-100">{content}</p>
+            <p className="text-gray-100 w-5/6">{content}</p>
             <form className="mt-4">
               <label className="block text-sm font-semibold text-gray-100 mb-1">
                 Answer:
