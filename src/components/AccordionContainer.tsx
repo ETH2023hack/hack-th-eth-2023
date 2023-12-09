@@ -26,23 +26,28 @@ const AccordionContainer: FC = () => {
   const accordionData = [
     {
       content:
-        "Can you hear this image ? Image hash(QmbxrL8e9vpGeb9frrCEQgcRSDvrYchDq8fyyb4n6BwU4J) on IPFS",
+        "Can you hear this image ?",
+        link : "https://teal-still-rat-339.mypinata.cloud/ipfs/QmcUxgCY6fQd294wfx6JRLdaJAj7CAqucGg1kyx8GvMWoT"
     },
     {
       content:
         "At the dawn of a decentralized era, a digital whisper echoed, 'That's when it all started.' Seek the origin point, the cryptic fingerprint.",
+        link:""
     },
     {
-      content: "Name of the character dancing in this song  (small case)",
+      content: "Name the character dancing in this song",
+      link:"https://teal-still-rat-339.mypinata.cloud/ipfs/QmQuShLNcuS8UQjMgYCHWHNgEhmjhPdQocn8mQHNMEyUXp"
     },
 
     {
       content:
         "Strange Amazon product: not a Jedi's weapon, just fancy utensils. Lights up for meals. What's this odd discovery?(all smalle no space)",
+        link:""
     },
     {
       content:
-        "In pixels' regular party, a secret hides shy. No alarms, no cries, just a quiet ally. It's steganography's game, where data learns to fly.(Start from here QmTpxRJHHCR96JkVbNJsWHWFu7ssf9Pyk2LQKMsv8LQeFA it's IPFS hash)",
+        "In pixels' regular party, a secret hides shy. No alarms, no cries, just a quiet ally. It's steganography's game, where data learns to fly.",
+        link:"https://ipfs.io/ipfs/QmTpxRJHHCR96JkVbNJsWHWFu7ssf9Pyk2LQKMsv8LQeFA"
     },
   ];
 
@@ -63,6 +68,7 @@ const AccordionContainer: FC = () => {
           onToggle={() => toggleAccordion(index)}
           sectionIndex={index}
           content={data.content}
+          link={data.link}
           participantLevel={Number(level)}
         />
       ))}
