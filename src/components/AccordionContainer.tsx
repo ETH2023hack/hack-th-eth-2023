@@ -48,7 +48,9 @@ const AccordionContainer: FC = () => {
 
   return (
     <div>
-      <h2 className="text-6xl font-Handjet mb-4 text-secondary font-semibold text-center">Hunt</h2>
+      <h2 className="text-6xl font-Handjet mb-4 text-secondary font-semibold text-center">
+        Hunt
+      </h2>
       {typeof level !== "undefined" && (
         <p className="text-white text-xl font-semibold mt-10 text-center">
           Your are currently at level: {Number(level) + 1}
